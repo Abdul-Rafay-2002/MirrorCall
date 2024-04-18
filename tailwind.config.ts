@@ -1,3 +1,4 @@
+import { url } from "inspector"
 import type { Config } from "tailwindcss"
 
 const config = {
@@ -18,6 +19,7 @@ const config = {
       },
     },
     extend: {
+    
       colors: {
         dark: {
           1: "#020817",

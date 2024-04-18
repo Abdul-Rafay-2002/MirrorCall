@@ -79,10 +79,7 @@
   .font-sedan{
     font-family: "Sedan", serif;
   }
-  .banner{
-    background: url(/banner.png) no-repeat center/cover;
  
-  }
     button.cl-socialButtonsIconButton {
       background: #ffffff1f;
       border: none;
@@ -90,4 +87,27 @@
     }
     button.cl-socialButtonsIconButton:hover {
       background: #ffffff60;
+    }
+    .bg-day{
+      background: url(/day-image.jpg) no-repeat center/cover;
+      position: relative;
+    }
+    .bg-afternoon{
+      background: url(/bg-afternoon.jpg) no-repeat center/cover;
+      position: relative;
+    }
+    .bg-night{
+      background: url(/bg-night.jpg) no-repeat center/cover;
+      position: relative;
+    }
+    .bg-night:before,.bg-afternoon:before, .bg-day:before{
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      height: 100%;
+      background: rgba(0, 0, 0, .3);
     }
