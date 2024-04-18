@@ -24,7 +24,7 @@ return (
 				
 				<div className=' z-10 relative flex justify-end flex-col'>
 				<p className='text-[#ECF0FF] bg-slate-950/40 px-4 py-2  rounded-lg text-base mb-20'>
-						Upcoming Meeting at: 12:30 PM
+						Upcoming Meeting is at: 12:30 PM
 					</p>
 					<p className='timezone text-[#ECF0FF] text-[65px] leading-[72px] font-extrabold pb-3'>
 						{time}
