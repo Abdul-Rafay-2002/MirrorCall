@@ -1,3 +1,5 @@
+
+
 import MeetingTypeList from '@/components/MeetingTypeList';
 import { currentUser } from '@clerk/nextjs';
 const Home = async ()  => {
@@ -21,12 +23,12 @@ return (
 				<div className='z-10 relative flex justify-end flex-col'>
 					<h1 className='greet text-white text-6xl font-bold font-anek-devanagari'>
 						{hour >= '21'
-							? '🌙 Good Night'
+							? 'Good Night'
 							: hour > '12'
-							? '🌄 Good Afternoon'
-							: '☀️ Good Day'}
+							? ' Good Afternoon'
+							: ' Good Day'}
 					</h1>
-					<p className='text-4xl capitalize font-semibold font-anek-devanagari text-right mt-3 text-white/60'>
+					<p className='text-4xl capitalize font-semibold font-anek-devanagari text-right mt-3 text-slate-100'>
 						{user?.firstName + ' ' + user?.lastName}
 					</p>
 				</div>
