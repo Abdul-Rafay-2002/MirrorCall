@@ -1,13 +1,15 @@
 'use client';
 
+import { Textarea } from '@/components/ui/textarea';
 import React, { useState } from 'react';
 import MeetingCard from './MeetingCard';
-import { Calendar, PlusIcon, Video } from 'lucide-react';
+import { Calendar, Clipboard, PlusIcon, Video } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import MeetingModel from './MeetingModel';
 import { useUser } from '@clerk/nextjs';
 import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
 import { useToast } from '@/components/ui/use-toast';
+import ReactDatePicker from 'react-datepicker';
 
 const MeetingTypeList = () => {
 	const { toast } = useToast();
@@ -67,6 +69,7 @@ const MeetingTypeList = () => {
 			});
 		}
 	};
+	const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}`;
 	const router = useRouter();
 
 	return (
@@ -102,6 +105,59 @@ const MeetingTypeList = () => {
 				handleClick={() => setMeetingState('isJoiningMeeting')}
 			/>
 
+			{!callDetails ? (
+				<MeetingModel
+					isOpen={meetingState === 'isScheduleMeeting'}
+					onClose={() => setMeetingState(undefined)}
+					title='Create Meeting'
+					className='text-left px-4'
+					buttonText={`Create Meeting`}
+					handleClick={createMeeting}>
+					<div className='flex flex-col gap-2.5 px-4'>
+						<label className='text-base text-normal leading-5 font-semibold text-sky-100/90'>
+							Add a Description
+						</label>
+						<Textarea
+							className='bg-slate-900 border-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0'
+							onChange={(e) =>
+								setValues({
+									...values,
+									description: e.target.value,
+								})
+							}
+						/>
+					</div>
+					<div className='flex w-full flex-col gap-2.5 px-4'>
+						<label className='text-base text-normal leading-5 font-semibold text-sky-100/90'>
+							Select Date & Time
+						</label>
+						<ReactDatePicker
+							className='outline-none focus:outline-none focus:border-none bg-slate-900 px-3 py-3 w-full rounded-md'
+							selected={values.dateTime}
+							onChange={(date) => setValues({ ...values, dateTime: date! })}
+							showTimeSelect
+							timeFormat='HH:mm'
+							timeIntervals={15}
+							timeCaption='Time'
+							dateFormat={'MMMM d, yyyy h:mm aa'}
+						/>
+					</div>
+				</MeetingModel>
+			) : (
+				<MeetingModel
+					isOpen={meetingState === 'isScheduleMeeting'}
+					onClose={() => setMeetingState(undefined)}
+					title='Meeting Created!'
+					className='text-center'
+					buttonText='Copy Meeting Link'
+					image='/success.svg'
+					Icon={Clipboard}
+					handleClick={() => {
+						navigator.clipboard.writeText(meetingLink);
+						toast({ title: 'Link Copied!'});
+					}}
+				/>
+			)}
 			<MeetingModel
 				isOpen={meetingState === 'isInstantMeeting'}
 				onClose={() => setMeetingState(undefined)}

@@ -38,8 +38,16 @@ const MeetingModel = ({
 	return (
 		<Dialog open={isOpen} onOpenChange={onClose}>
 			<DialogContent className='flex w-full max-w-[500px] flex-col gap-6 border-none px-6 py-9 pb-12 bg-dark-1 text-white'>
-				<div className='flex flex-col gap-6'>
-					{image && <Image src={image} width={72} height={72} alt='Image' />}
+				<div className='flex flex-col items-center gap-6'>
+					{image && (
+						<Image
+							src={image}
+							width={72}
+							height={72}
+							alt='Image'
+							className='rounded-full'
+						/>
+					)}
 				</div>
 				<h1 className={cn('text-3xl font-bold leading-10 ', className)}>
 					{title}
