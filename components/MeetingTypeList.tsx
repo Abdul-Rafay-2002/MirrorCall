@@ -10,6 +10,7 @@ import { useUser } from '@clerk/nextjs';
 import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
 import { useToast } from '@/components/ui/use-toast';
 import ReactDatePicker from 'react-datepicker';
+import { Input } from './ui/input';
 
 const MeetingTypeList = () => {
 	const { toast } = useToast();
@@ -154,7 +155,7 @@ const MeetingTypeList = () => {
 					Icon={Clipboard}
 					handleClick={() => {
 						navigator.clipboard.writeText(meetingLink);
-						toast({ title: 'Link Copied!'});
+						toast({ title: 'Link Copied!' });
 					}}
 				/>
 			)}
@@ -167,6 +168,22 @@ const MeetingTypeList = () => {
 				handleClick={createMeeting}
 				Icon={Video}
 			/>
+
+			<MeetingModel
+				isOpen={meetingState === 'isJoiningMeeting'}
+				onClose={() => setMeetingState(undefined)}
+				title='Paste the link here!'
+				className='text-center'
+				buttonText='Join Meeting'
+				handleClick={() => router.push(values.link)}
+				Icon={Video}>
+				<Input
+					type='text'
+					onChange={(e)=> setValues({...values, link:e.target.value})}
+					placeholder='Meeting link'
+					className='px-2 py-6 max-w-[420px] mx-auto bg-slate-700 border-none placeholder:text-slate-200/70 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0'
+				/>
+			</MeetingModel>
 		</section>
 	);
 };
