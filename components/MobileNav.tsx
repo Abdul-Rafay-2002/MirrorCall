@@ -26,7 +26,7 @@ const MobileNav = () => {
 				<SheetContent side={'left'} className='border-none bg-dark-1'>
 					<SheetHeader>
 						<Link href={'/'} className='flex items-center justify-center gap-1'>
-							<h2 className='text-white font-bold text-4xl leading-tight tracking-wider  font-sedan '>
+							<h2 className='text-white font-black text-4xl leading-tight tracking-wider poppins '>
 								MIRROR <span className='text-blue-600 '>CALL</span>
 							</h2>
 						</Link>
@@ -47,13 +47,13 @@ const MobileNav = () => {
 														isActive,
 												}
 											)}>
-											<div className='flex'>
+											<div className='flex gap-2'>
 												<link.icon
 													className={cn('h-6 w-6 mr-3 max-lg:mx-1', {
 														'text-blue-600': isActive,
 													})}
 												/>
-												<p className='text-lg font-semibold max-lg:hidden'>
+												<p className='text-md font-semibold '>
 													{link.label}
 												</p>
 											</div>
