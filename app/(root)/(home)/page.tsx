@@ -48,7 +48,7 @@ const Home = async () => {
 			<MeetingTypeList />
 			<div className='flex items-end justify-between'>
 				<h1 className='text-3xl lg:text-4xl  mt-10 mb-0 font-bold'>
-					Today's Upcoming Meeting
+					Todays Upcoming Meeting
 				</h1>
 				<Link
 					href={'/upcoming'}
