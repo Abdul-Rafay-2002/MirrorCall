@@ -36,11 +36,11 @@ const Sidebar = () => {
 				})}
 			</div>
 			<div>
-				<p className='text-slate-300/50 text-[.751rem] my-6 flex gap-2 '>
+				<p className='text-slate-300/50 text-[.751rem] my-6 flex gap-1 items-center'>
 						&copy; {new Date().getFullYear()} MirrorCall - All right reserved.
 						by
 						<Link
-							className='text-[0.736rem] font-bold hover:text-[#2563EB]'
+							className='text-[.716rem] font-bold hover:text-[#2563EB]'
 							href='https://abdulrafayportfolio.vercel.app/'
 							target='_blank'>
 							Rafay Dev
