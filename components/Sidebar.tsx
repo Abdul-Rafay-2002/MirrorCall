@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
+import Image from 'next/image';
 
 const Sidebar = () => {
 	const pathname = usePathname();
@@ -33,6 +34,22 @@ const Sidebar = () => {
 						</Link>
 					);
 				})}
+			</div>
+			<div>
+				<p className='text-slate-300/50 text-md my-6 flex gap-2 '>
+						&copy; {new Date().getFullYear()} MirrorCall - All right reserved.
+						by
+						<Link
+							className='text-md font-bold hover:text-[#00ED64]'
+							href='https://abdulrafayportfolio.vercel.app/'
+							target='_blank'>
+							<Image
+								src='https://abdulrafayportfolio.vercel.app/static/media/footer-logo.0723028e116b4f67fdcc.png'
+								width={40}
+								height={40}
+								alt='Rafay Dev'></Image>
+						</Link>
+					</p>
 			</div>
 		</section>
 	);
