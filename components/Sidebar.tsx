@@ -40,14 +40,10 @@ const Sidebar = () => {
 						&copy; {new Date().getFullYear()} MirrorCall - All right reserved.
 						by
 						<Link
-							className='text-md font-bold hover:text-[#00ED64]'
+							className='text-[0.736rem] font-bold hover:text-[#2563EB]'
 							href='https://abdulrafayportfolio.vercel.app/'
 							target='_blank'>
-							<Image
-								src='https://abdulrafayportfolio.vercel.app/static/media/footer-logo.0723028e116b4f67fdcc.png'
-								width={40}
-								height={40}
-								alt='Rafay Dev'></Image>
+							Rafay Dev
 						</Link>
 					</p>
 			</div>
