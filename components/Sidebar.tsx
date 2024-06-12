@@ -35,7 +35,7 @@ const Sidebar = () => {
 					);
 				})}
 			</div>
-			<div>
+			<div className="max-lg:hidden">
 				<p className='text-slate-300/50 text-[.751rem] my-6 flex gap-1 items-center'>
 						&copy; {new Date().getFullYear()} MirrorCall - All right reserved.
 						by
