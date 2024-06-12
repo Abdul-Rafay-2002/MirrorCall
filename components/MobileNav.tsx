@@ -34,6 +34,7 @@ const MobileNav = () => {
 					<div className='flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto'>
 						<SheetClose asChild>
 							<section className='h-full flex flex-col gap-6 pt-16 text-white'>
+								<div className="flex flex-col gap-6 pt-16 text-white">
 								{SidebarLinks.map((link) => {
 									const isActive = pathname === link.route;
 									return (
@@ -60,6 +61,16 @@ const MobileNav = () => {
 										</Link>
 									);
 								})}
+								</div>
+								<div>
+									<p classname="text-slate-300/50 text-[.751rem] my-6 flex gap-1 items-center">
+										© {new Date().getFullYear()} MirrorCall - All right reserved.
+										by
+										<link classname="text-[.716rem] font-bold hover:text-[#2563EB]" href="https://abdulrafayportfolio.vercel.app/" target="_blank">
+											Rafay Dev
+										
+									</p>
+								</div>
 							</section>
 						</SheetClose>
 					</div>
